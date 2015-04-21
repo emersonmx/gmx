@@ -1,6 +1,8 @@
 #ifndef GMX_GAME_HPP
 #define GMX_GAME_HPP
 
+#include <memory>
+
 #include "gmx/Application.hpp"
 #include "gmx/DefaultScreen.hpp"
 
@@ -8,22 +10,18 @@ namespace gmx {
 
 class Game : public Application {
     public:
-        Game() : screen(NULL) {}
-        Screen* getScreen() const { return screen; }
-        void setScreen(Screen* screen) {
-            if (this->screen != NULL) {
-                this->screen->hide();
-            }
-            screen->show();
-            this->screen = screen;
-        }
+        typedef std::shared_ptr<Screen> ScreenPtr;
 
-        virtual void update() {
-            screen->update();
-        }
+        Game();
+        virtual ~Game() {}
+
+        inline const ScreenPtr& getScreen() const { return screen; }
+        void setScreen(const ScreenPtr& screen);
+
+        virtual void update();
 
     private:
-        Screen* screen;
+        ScreenPtr screen;
 };
 
 } /* namespace gmx */

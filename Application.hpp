@@ -10,15 +10,12 @@ class Application {
         Application() : running(true) {}
         virtual ~Application() {}
 
+        void run();
         void exit();
 
         virtual void create() = 0;
-
         virtual void dispose() = 0;
-
         virtual void update() = 0;
-
-        void run();
 
     private:
         bool running;

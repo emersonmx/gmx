@@ -30,5 +30,6 @@ set(EXTRA_LIBS ${EXTRA_LIBS} ${SDL2_image_LIBRARIES})
 
 add_library(gmx
     Application.cpp
+    Game.cpp
     Utils.cpp
 )

@@ -11,6 +11,7 @@ class Application {
         void run();
         void exit();
 
+    protected:
         virtual void create() = 0;
         virtual void dispose() = 0;
         virtual void update() = 0;

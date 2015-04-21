@@ -29,7 +29,7 @@ include_directories(${SDL2_image_INCLUDE_DIRS})
 set(EXTRA_LIBS ${EXTRA_LIBS} ${SDL2_image_LIBRARIES})
 
 add_library(gmx
-    Application.cpp
-    Game.cpp
-    Utils.cpp
+    gmx/Application.cpp
+    gmx/Game.cpp
+    gmx/Utils.cpp
 )

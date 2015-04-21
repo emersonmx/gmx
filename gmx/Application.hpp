@@ -1,8 +1,6 @@
 #ifndef GMX_APPLICATION_HPP
 #define GMX_APPLICATION_HPP
 
-#include <cstdlib>
-
 namespace gmx {
 
 class Application {

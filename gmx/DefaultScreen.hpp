@@ -2,7 +2,7 @@
 #define GMX_DEFAULT_SCREEN_HPP
 #include <iostream>
 
-#include "Screen.hpp"
+#include "gmx/Screen.hpp"
 
 namespace gmx {
 

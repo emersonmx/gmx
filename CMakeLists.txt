@@ -19,8 +19,8 @@ option (BUILD_EXAMPLES
 include_directories(${PROJECT_SOURCE_DIR})
 
 find_package(OpenGL REQUIRED)
-include_directories(${GL_INCLUDE_DIRS})
-set(EXTRA_LIBS ${EXTRA_LIBS} ${GL_LIBRARIES})
+include_directories(${OPENGL_INCLUDE_DIRS})
+set(EXTRA_LIBS ${EXTRA_LIBS} ${OPENGL_LIBRARIES})
 
 pkg_search_module(GLFW REQUIRED glfw3)
 include_directories(${GLFW_INCLUDE_DIRS})

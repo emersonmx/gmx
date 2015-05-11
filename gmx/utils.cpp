@@ -1,10 +1,8 @@
-#include "Utils.hpp"
-
-#include <SDL_image.h>
+#include gmx/utils.hpp"
 
 namespace gmx {
 
-SDL_Texture* loadTexture(const char* filename, SDL_Renderer* renderer) {
+Texture* loadTexture(const char* filename, SDL_Renderer* renderer) {
     SDL_Texture* newTexture = NULL;
     SDL_Surface* loadedSurface = IMG_Load(filename);
     if (loadedSurface == NULL) {

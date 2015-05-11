@@ -5,7 +5,7 @@ include(FindPkgConfig)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
 # Projects
-project(gmx)
+project(GameScreenApp)
 
 ### Configs
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -22,9 +22,10 @@ find_package(FreeImage REQUIRED)
 include_directories(${FREEIMAGE_INCLUDE_DIRS})
 set(EXTRA_LIBS ${EXTRA_LIBS} ${FREEIMAGE_LIBRARIES})
 
-add_library(${PROJECT_NAME}
-    gmx/application.cpp
-    gmx/game.cpp
+add_executable(${PROJECT_NAME}
+    game_screen.cpp
 )
 
-add_subdirectory(examples)
+target_link_libraries(${PROJECT_NAME}
+    gmx
+)

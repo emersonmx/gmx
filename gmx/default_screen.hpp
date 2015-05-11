@@ -1,8 +1,9 @@
 #ifndef GMX_DEFAULT_SCREEN_HPP
 #define GMX_DEFAULT_SCREEN_HPP
+
 #include <iostream>
 
-#include "gmx/Screen.hpp"
+#include "gmx/screen.hpp"
 
 namespace gmx {
 
@@ -18,4 +19,3 @@ class DefaultScreen: public Screen {
 
 } /* namespace gmx */
 #endif /* GMX_DEFAULT_SCREEN_HPP */
-

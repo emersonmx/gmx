@@ -3,8 +3,8 @@
 
 #include <memory>
 
-#include "gmx/Application.hpp"
-#include "gmx/DefaultScreen.hpp"
+#include "gmx/application.hpp"
+#include "gmx/default_screen.hpp"
 
 namespace gmx {
 
@@ -26,4 +26,3 @@ class Game : public Application {
 
 } /* namespace gmx */
 #endif /* GMX_GAME_HPP */
-

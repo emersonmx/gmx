@@ -15,4 +15,3 @@ class Screen {
 
 } /* namespace gmx */
 #endif /* GMX_SCREEN_HPP */
-

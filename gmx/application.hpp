@@ -5,11 +5,11 @@ namespace gmx {
 
 class Application {
     public:
-        Application() : running(true) {}
+        Application() : running(true), errorCode(0) {}
         virtual ~Application() {}
-
-        void run();
-        void exit();
+        
+        int run();
+        void exit(int errorCode=0);
 
     protected:
         virtual void create() = 0;
@@ -18,8 +18,8 @@ class Application {
 
     private:
         bool running;
+        int errorCode;
 };
 
 } /* namespace gmx */
 #endif /* GMX_APPLICATION_HPP */
-

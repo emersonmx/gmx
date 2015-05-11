@@ -1,2 +1,3 @@
 add_subdirectory(SimpleApp)
 add_subdirectory(GameScreenApp)
+add_subdirectory(TextureApp)

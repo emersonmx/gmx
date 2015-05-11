@@ -15,8 +15,6 @@ class GameScreenApp : public gmx::Game {
         virtual void dispose() {
             printf("App disposed\n");
         }
-
-    private:
 };
 
 class TestScreen : public gmx::DefaultScreen {

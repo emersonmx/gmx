@@ -1,8 +1,6 @@
 #ifndef GMX_DEFAULT_SCREEN_HPP
 #define GMX_DEFAULT_SCREEN_HPP
 
-#include <iostream>
-
 #include "gmx/screen.hpp"
 
 namespace gmx {

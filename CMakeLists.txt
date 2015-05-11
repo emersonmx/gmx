@@ -18,7 +18,7 @@ option (BUILD_EXAMPLES
 
 include_directories(${PROJECT_SOURCE_DIR})
 
-pkg_search_module(GL REQUIRED gl)
+find_package(OpenGL REQUIRED)
 include_directories(${GL_INCLUDE_DIRS})
 set(EXTRA_LIBS ${EXTRA_LIBS} ${GL_LIBRARIES})
 

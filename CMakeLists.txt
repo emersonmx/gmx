@@ -22,7 +22,7 @@ find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 set(EXTRA_LIBS ${EXTRA_LIBS} ${OPENGL_LIBRARIES})
 
-pkg_search_module(GLFW REQUIRED glfw3)
+find_package(GLFW REQUIRED)
 include_directories(${GLFW_INCLUDE_DIRS})
 set(EXTRA_LIBS ${EXTRA_LIBS} ${GLFW_LIBRARIES})
 

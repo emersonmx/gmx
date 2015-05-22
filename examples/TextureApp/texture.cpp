@@ -63,6 +63,8 @@ class TextureApp : public gmx::Application {
 
             glClear(GL_COLOR_BUFFER_BIT);
 
+            glLoadIdentity();
+
             glBegin(GL_QUADS);
                 glTexCoord2f(0.0f, 0.0f);
                 glVertex2f(0, 0);

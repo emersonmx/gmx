@@ -37,6 +37,9 @@ class TextureApp : public gmx::Application {
             glLoadIdentity();
             glOrtho(0, WINDOW_WIDTH, 0, WINDOW_HEIGHT, 1, -1);
 
+            glMatrixMode(GL_MODELVIEW);
+            glLoadIdentity();
+
             glEnable(GL_TEXTURE_2D);
 
             glClearColor(0, 0, 0, 1);

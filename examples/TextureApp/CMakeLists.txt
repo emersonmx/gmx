@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 2.6)
 
 project(TextureApp)
 
-include(FindPkgConfig)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
-
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 set(EXTRA_LIBS ${EXTRA_LIBS} ${OPENGL_LIBRARIES})

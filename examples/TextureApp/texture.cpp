@@ -44,7 +44,7 @@ class TextureApp : public gmx::Application {
 
             glClearColor(0, 0, 0, 1);
 
-            texture = gmx::loadTexture("hello.png");
+            texture = gmx::loadTexture("assets/hello.png");
         }
 
         virtual void dispose() {

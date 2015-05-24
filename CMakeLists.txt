@@ -21,7 +21,6 @@ include_directories(${PROJECT_SOURCE_DIR})
 add_library(${PROJECT_NAME}
     gmx/application.cpp
     gmx/game.cpp
-    gmx/loaders.cpp
 )
 
 if (BUILD_EXAMPLES)

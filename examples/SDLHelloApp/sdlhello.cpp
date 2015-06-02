@@ -14,18 +14,13 @@ using namespace std;
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 
-class Texture : public gmx::Texture {
+class Texture : public gmx::Texture<SDL_Texture*> {
     public:
         Texture(SDL_Texture* texture, int width, int height)
-            : texture(texture), gmx::Texture(width, height) {}
+            : gmx::Texture<SDL_Texture*>(texture, width, height) {}
         virtual ~Texture() {
             SDL_DestroyTexture(texture);
         }
-
-        inline SDL_Texture* getTexture() { return texture; }
-
-    private:
-        SDL_Texture* texture;
 };
 
 typedef shared_ptr<Texture> TexturePtr;

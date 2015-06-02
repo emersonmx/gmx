@@ -13,16 +13,7 @@ using namespace std;
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 
-class Texture : public gmx::Texture {
-    public:
-        Texture(GLuint textureId, int width, int height)
-            : textureId(textureId), gmx::Texture(width, height) {}
-
-        inline GLuint getTexture() { return textureId; }
-
-    protected:
-        GLuint textureId;
-};
+typedef gmx::Texture<GLuint> Texture;
 
 static FIBITMAP* loadImage(const char* filename) {
     FREE_IMAGE_FORMAT fif = FreeImage_GetFIFFromFilename(filename);

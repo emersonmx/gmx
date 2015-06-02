@@ -3,22 +3,27 @@
 
 namespace gmx {
 
+template <class T>
 class Texture {
     public:
-        Texture(int width, int height) : width(width), height(height) {}
+        Texture(T texture, int width, int height)
+            : texture(texture), width(width), height(height) {}
         virtual ~Texture() {}
 
+        inline T getTexture() { return texture; }
         inline int getWidth() { return width; }
         inline int getHeight() { return height; }
 
     protected:
+        T texture;
         int width;
         int height;
 };
 
+template <class T>
 class TextureRegion {
     public:
-        TextureRegion(Texture& texture) : texture(texture) {}
+        TextureRegion(Texture<T> texture) : texture(texture) {}
         virtual ~TextureRegion() {}
 
         inline int getX() { return texture.getWidth() * u; }
@@ -53,14 +58,14 @@ class TextureRegion {
         inline void getRegion(float* u, float* v, float* u2, float* v2);
         inline void setRegion(float u, float v, float u2, float v2);
 
-        inline const Texture& getTexture() { return texture; }
+        inline const Texture<T> getTexture() { return texture; }
 
     private:
         float u;
         float v;
         float u2;
         float v2;
-        Texture& texture;
+        Texture<T> texture;
 };
 
 }

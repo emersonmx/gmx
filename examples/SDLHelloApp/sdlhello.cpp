@@ -40,13 +40,11 @@ SDL_Surface* loadImage(const char* filename) {
     return loadedImage;
 }
 
-Texture* loadTexture(SDL_Renderer* renderer, const char* filename) {
+SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* filename) {
     SDL_Surface* surface = loadImage(filename);
     if (surface == NULL) {
         return NULL;
     }
-
-    int width=surface->w, height=surface->h;
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     if (texture == NULL) {
@@ -56,7 +54,7 @@ Texture* loadTexture(SDL_Renderer* renderer, const char* filename) {
 
     SDL_FreeSurface(surface);
 
-    return new Texture(texture, width, height);
+    return texture;
 }
 
 class SDLHelloApp : public gmx::Application {
@@ -170,12 +168,14 @@ class SDLHelloApp : public gmx::Application {
         }
 
         bool loadAssets() {
-            Texture* texture = loadTexture(renderer, "assets/hello.png");
+            SDL_Texture* texture = loadTexture(renderer, "assets/hello.png");
             if (texture == NULL) {
                 return false;
             }
 
-            this->texture.reset(texture);
+            int w,h;
+            SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+            this->texture.reset(new Texture(texture, w, h));
 
             return true;
         }

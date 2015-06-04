@@ -14,7 +14,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
 endif (CMAKE_COMPILER_IS_GNUCXX)
 
 option (BUILD_EXAMPLES
-    "Build examples" ON)
+    "Build examples" OFF)
 
 include_directories(${PROJECT_SOURCE_DIR})
 

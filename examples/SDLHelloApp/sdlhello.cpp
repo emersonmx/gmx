@@ -25,33 +25,6 @@ class Texture : public gmx::Texture<SDL_Texture*> {
 
 typedef shared_ptr<Texture> TexturePtr;
 
-SDL_Surface* loadImage(const char* filename) {
-    SDL_Surface* loadedImage = IMG_Load(filename);
-    if (loadedImage == NULL) {
-        printf("Não foi possível carregar a image %s. IMG_Error: %s\n", filename, IMG_GetError());
-        return NULL;
-    }
-
-    return loadedImage;
-}
-
-SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* filename) {
-    SDL_Surface* surface = loadImage(filename);
-    if (surface == NULL) {
-        return NULL;
-    }
-
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-    if (texture == NULL) {
-        printf("Não foi possível criar a texture. SDL_Error: %s\n", SDL_GetError());
-        return NULL;
-    }
-
-    SDL_FreeSurface(surface);
-
-    return texture;
-}
-
 class SDLHelloApp : public gmx::Application {
     public:
         SDLHelloApp() : window(NULL), renderer(NULL), texture(NULL) {}
@@ -163,7 +136,7 @@ class SDLHelloApp : public gmx::Application {
         }
 
         bool loadAssets() {
-            SDL_Texture* texture = loadTexture(renderer, "assets/hello.png");
+            SDL_Texture* texture = IMG_LoadTexture(renderer, "assets/hello.png");
             if (texture == NULL) {
                 return false;
             }

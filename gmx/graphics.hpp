@@ -23,17 +23,25 @@ class Texture {
 template <class T>
 class TextureRegion {
     public:
-        TextureRegion(Texture<T> texture) : texture(texture) {}
+        TextureRegion(Texture<T>* texture) : texture(texture) {}
         virtual ~TextureRegion() {}
 
-        inline int getX() { return texture.getWidth() * u; }
-        inline void setX(int x) { u = x / texture.getWidth(); }
-        inline int getY() { return texture.getHeight() * v; }
-        inline void setY(int y) { v = y / texture.getHeight(); }
-        inline int getWidth() { return texture.getWidth() * u2; }
-        inline void setWidth(int width) { u2 = width / texture.getWidth(); }
-        inline int getHeight() { return texture.getHeight() * v2; }
-        inline void setHeight(int height) { v2 = height / texture.getHeight(); }
+        inline int getX() { return texture->getWidth() * u; }
+        inline void setX(int x) {
+            u = (float) x / texture->getWidth();
+        }
+        inline int getY() { return texture->getHeight() * v; }
+        inline void setY(int y) {
+            v = (float) y / texture->getHeight();
+        }
+        inline int getWidth() { return texture->getWidth() * u2; }
+        inline void setWidth(int width) {
+            u2 = (float) width / texture->getWidth();
+        }
+        inline int getHeight() { return texture->getHeight() * v2; }
+        inline void setHeight(int height) {
+            v2 = (float) height / texture->getHeight();
+        }
         void getRegion(int* x, int* y, int* width, int* height) {
             *x = getX();
             *y = getY();
@@ -55,17 +63,28 @@ class TextureRegion {
         inline void setU2(float u2) { this->u2 = u2; }
         inline float getV2() { return v2; }
         inline void setV2(float v2) { this->v2 = v2; }
-        inline void getRegion(float* u, float* v, float* u2, float* v2);
-        inline void setRegion(float u, float v, float u2, float v2);
+        void getRegion(float* u, float* v, float* u2, float* v2) {
+            *u = getU();
+            *v = getV();
+            *u2 = getU2();
+            *v2 = getV2();
+        }
+        void setRegion(float u, float v, float u2, float v2) {
+            setU(u);
+            setV(v);
+            setU2(u2);
+            setV2(v2);
+        }
 
-        inline const Texture<T> getTexture() { return texture; }
+        inline Texture<T>* getTexture() { return texture; }
+        inline T getRawTexture() { return texture->getTexture(); }
 
     private:
         float u;
         float v;
         float u2;
         float v2;
-        Texture<T> texture;
+        Texture<T>* texture;
 };
 
 }

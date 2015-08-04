@@ -78,7 +78,7 @@ class TextureRegion {
 
         Texture<T>* getTexture() { return texture; }
 
-    private:
+    protected:
         float u;
         float v;
         float u2;

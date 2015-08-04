@@ -13,8 +13,8 @@ const Game::ScreenPtr& Game::getScreen() const {
 
 void Game::setScreen(const Game::ScreenPtr& screen) {
     this->screen->hide();
-    screen->show();
     this->screen = screen;
+    this->screen->show();
 }
 
 void Game::update() {

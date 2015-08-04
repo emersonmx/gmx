@@ -5,9 +5,9 @@ namespace gmx {
 
 class Application {
     public:
-        Application() : running(true), errorCode(0) {}
-        virtual ~Application() {}
-        
+        Application();
+        virtual ~Application();
+
         int run();
         void exit(int errorCode=0);
 

@@ -13,5 +13,15 @@ class Screen {
         virtual void dispose() = 0;
 };
 
+class DefaultScreen: public Screen {
+    public:
+        virtual ~DefaultScreen() {}
+
+        virtual void show() {}
+        virtual void hide() {}
+        virtual void update() {}
+        virtual void dispose() {}
+};
+
 } /* namespace gmx */
 #endif /* GMX_SCREEN_HPP */

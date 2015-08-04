@@ -2,13 +2,18 @@
 
 namespace gmx {
 
+Application::Application()
+    : running(true), errorCode(0) {}
+
+Application::~Application() {}
+
 int Application::run() {
     create();
     while (running) {
         update();
     }
     dispose();
-    
+
     return errorCode;
 }
 

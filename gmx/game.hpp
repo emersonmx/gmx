@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "gmx/application.hpp"
-#include "gmx/default_screen.hpp"
+#include "gmx/screen.hpp"
 
 namespace gmx {
 
@@ -13,9 +13,9 @@ class Game : public Application {
         typedef std::shared_ptr<Screen> ScreenPtr;
 
         Game();
-        virtual ~Game() {}
+        virtual ~Game();
 
-        inline const ScreenPtr& getScreen() const { return screen; }
+        const ScreenPtr& getScreen() const;
         void setScreen(const ScreenPtr& screen);
 
         virtual void update();

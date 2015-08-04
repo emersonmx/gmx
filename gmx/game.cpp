@@ -2,9 +2,16 @@
 
 namespace gmx {
 
-Game::Game() : screen(std::make_shared<DefaultScreen>()) {}
+Game::Game()
+    : screen(std::make_shared<DefaultScreen>()) {}
 
-void Game::setScreen(const ScreenPtr& screen) {
+Game::~Game() {}
+
+const Game::ScreenPtr& Game::getScreen() const {
+    return screen;
+}
+
+void Game::setScreen(const Game::ScreenPtr& screen) {
     this->screen->hide();
     screen->show();
     this->screen = screen;

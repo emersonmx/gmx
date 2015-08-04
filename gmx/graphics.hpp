@@ -10,9 +10,9 @@ class Texture {
             : texture(texture), width(width), height(height) {}
         virtual ~Texture() {}
 
-        inline T getTexture() { return texture; }
-        inline int getWidth() { return width; }
-        inline int getHeight() { return height; }
+        T getTexture() { return texture; }
+        int getWidth() { return width; }
+        int getHeight() { return height; }
 
     protected:
         T texture;
@@ -26,20 +26,20 @@ class TextureRegion {
         TextureRegion(Texture<T>* texture) : texture(texture) {}
         virtual ~TextureRegion() {}
 
-        inline int getX() { return texture->getWidth() * u; }
-        inline void setX(int x) {
+        int getX() { return texture->getWidth() * u; }
+        void setX(int x) {
             u = (float) x / texture->getWidth();
         }
-        inline int getY() { return texture->getHeight() * v; }
-        inline void setY(int y) {
+        int getY() { return texture->getHeight() * v; }
+        void setY(int y) {
             v = (float) y / texture->getHeight();
         }
-        inline int getWidth() { return texture->getWidth() * u2; }
-        inline void setWidth(int width) {
+        int getWidth() { return texture->getWidth() * u2; }
+        void setWidth(int width) {
             u2 = (float) width / texture->getWidth();
         }
-        inline int getHeight() { return texture->getHeight() * v2; }
-        inline void setHeight(int height) {
+        int getHeight() { return texture->getHeight() * v2; }
+        void setHeight(int height) {
             v2 = (float) height / texture->getHeight();
         }
         void getRegion(int* x, int* y, int* width, int* height) {
@@ -55,14 +55,14 @@ class TextureRegion {
             setHeight(height);
         }
 
-        inline float getU() { return u; }
-        inline void setU(float u) { this->u = u; }
-        inline float getV() { return v; }
-        inline void setV(float v) { this->v = v; }
-        inline float getU2() { return u2; }
-        inline void setU2(float u2) { this->u2 = u2; }
-        inline float getV2() { return v2; }
-        inline void setV2(float v2) { this->v2 = v2; }
+        float getU() { return u; }
+        void setU(float u) { this->u = u; }
+        float getV() { return v; }
+        void setV(float v) { this->v = v; }
+        float getU2() { return u2; }
+        void setU2(float u2) { this->u2 = u2; }
+        float getV2() { return v2; }
+        void setV2(float v2) { this->v2 = v2; }
         void getRegion(float* u, float* v, float* u2, float* v2) {
             *u = getU();
             *v = getV();
@@ -76,8 +76,7 @@ class TextureRegion {
             setV2(v2);
         }
 
-        inline Texture<T>* getTexture() { return texture; }
-        inline T getRawTexture() { return texture->getTexture(); }
+        Texture<T>* getTexture() { return texture; }
 
     private:
         float u;

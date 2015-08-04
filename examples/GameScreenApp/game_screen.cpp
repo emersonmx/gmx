@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 #include "gmx/game.hpp"
-#include "gmx/default_screen.hpp"
+#include "gmx/screen.hpp"
 
 using namespace std;
 

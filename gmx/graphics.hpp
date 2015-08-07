@@ -10,9 +10,11 @@ class Texture {
             : texture(texture), width(width), height(height) {}
         virtual ~Texture() {}
 
-        T getData() { return texture; }
         int getWidth() { return width; }
         int getHeight() { return height; }
+
+        operator T() { return texture; }
+
     protected:
         T texture;
         int width;

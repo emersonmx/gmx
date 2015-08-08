@@ -98,7 +98,7 @@ class SDLHelloApp : public gmx::Application {
             offset.h = texture->getHeight();
 
             SDL_RenderClear(renderer);
-            SDL_RenderCopy(renderer, texture->getTexture(), NULL, &offset);
+            SDL_RenderCopy(renderer, *texture, NULL, &offset);
             SDL_RenderPresent(renderer);
         }
 

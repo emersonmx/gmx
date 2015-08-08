@@ -1,4 +1,4 @@
-#include "gmx/game.hpp"
+#include "gmx/application.hpp"
 
 namespace gmx {
 

@@ -1,8 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 
-#include "gmx/game.hpp"
-#include "gmx/screen.hpp"
+#include "gmx/application.hpp"
 
 using namespace std;
 

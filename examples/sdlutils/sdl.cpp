@@ -141,10 +141,10 @@ void Renderer::draw(Texture* texture, int x, int y) {
 }
 
 void Renderer::draw(TextureRegion* region, int x, int y) {
-    SDL_Rect offset = { x, y, region->getWidth(), region->getHeight() };
+    SDL_Rect offset = { x, y, region->getRegionWidth(), region->getRegionHeight() };
     SDL_Rect offsetSource = {
-        region->getX(), region->getY(),
-        region->getWidth(), region->getHeight()
+        region->getRegionX(), region->getRegionY(),
+        region->getRegionWidth(), region->getRegionHeight()
     };
 
     draw(*(region->getTexture()), &offsetSource, &offset);

@@ -23,9 +23,9 @@ class Application {
         int errorCode;
 };
 
-class Screen {
+class State {
     public:
-        virtual ~Screen() {}
+        virtual ~State() {}
 
         virtual void show() = 0;
         virtual void hide() = 0;
@@ -33,9 +33,9 @@ class Screen {
         virtual void dispose() = 0;
 };
 
-class DefaultScreen: public Screen {
+class DefaultState: public State {
     public:
-        virtual ~DefaultScreen() {}
+        virtual ~DefaultState() {}
 
         virtual void show() {}
         virtual void hide() {}
@@ -43,20 +43,20 @@ class DefaultScreen: public Screen {
         virtual void dispose() {}
 };
 
-class Game : public Application {
+typedef std::shared_ptr<State> StatePtr;
+
+class StateApplication : public Application {
     public:
-        typedef std::shared_ptr<Screen> ScreenPtr;
+        StateApplication();
+        virtual ~StateApplication();
 
-        Game();
-        virtual ~Game();
-
-        const ScreenPtr& getScreen() const;
-        void setScreen(const ScreenPtr& screen);
+        const StatePtr& getState() const;
+        void setState(const StatePtr& state);
 
         virtual void update();
 
     private:
-        ScreenPtr screen;
+        StatePtr state;
 };
 
 } /* namespace gmx */

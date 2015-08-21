@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 
-project(GameScreenApp)
+project(StateApp)
 
 add_executable(${PROJECT_NAME}
-    game_screen.cpp
+    stateapp.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}

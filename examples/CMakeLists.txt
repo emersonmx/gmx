@@ -1,5 +1,5 @@
 add_subdirectory(SimpleApp)
-add_subdirectory(GameScreenApp)
+add_subdirectory(StateApp)
 add_subdirectory(TextureApp)
 add_subdirectory(SDLHelloApp)
 add_subdirectory(SDLTextureRegionApp)

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class GameScreenApp : public gmx::Game {
+class StateApp : public gmx::StateApplication {
     protected:
         virtual void create() {
             printf("Created\n");
@@ -16,37 +16,37 @@ class GameScreenApp : public gmx::Game {
         }
 };
 
-class TestScreen : public gmx::DefaultScreen {
+class TestState : public gmx::DefaultState {
     public:
-        TestScreen(GameScreenApp& game) : game(game), count(1) {}
-        virtual ~TestScreen() {}
+        TestState(StateApp& app) : app(app), count(1) {}
+        virtual ~TestState() {}
 
         virtual void show() {
-            printf("Screen show\n");
+            printf("State show\n");
         }
 
         virtual void hide() {
-            printf("Screen hide\n");
+            printf("State hide\n");
         }
 
         virtual void update() {
-            printf("Screen updated %d\n", count);
+            printf("State updated %d\n", count);
             if (count++ >= 10) {
-                game.exit();
+                app.exit();
             }
         }
 
         virtual void dispose() {
-            printf("Screen disposed\n");
+            printf("State disposed\n");
         }
 
     private:
-        GameScreenApp& game;
+        StateApp& app;
         int count;
 };
 
 int main() {
-    GameScreenApp app;
-    app.setScreen(std::make_shared<TestScreen>(app));
+    StateApp app;
+    app.setState(std::make_shared<TestState>(app));
     return app.run();
 }

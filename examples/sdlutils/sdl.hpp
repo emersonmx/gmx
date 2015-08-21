@@ -26,6 +26,7 @@ class Texture : public gmx::Texture<SDL_Texture*> {
 
 class TextureRegion : public gmx::TextureRegion<SDL_Texture*> {
     public:
+        TextureRegion();
         TextureRegion(Texture* texture);
         virtual ~TextureRegion();
 };

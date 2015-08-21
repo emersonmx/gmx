@@ -20,6 +20,8 @@ Texture::~Texture() {
     SDL_DestroyTexture(texture);
 }
 
+TextureRegion::TextureRegion() : gmx::TextureRegion<SDL_Texture*>() {}
+
 TextureRegion::TextureRegion(Texture* texture)
     : gmx::TextureRegion<SDL_Texture*>(texture) {}
 

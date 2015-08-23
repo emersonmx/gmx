@@ -30,7 +30,6 @@ class Texture : public gmx::Texture<SDL_Texture*> {
 
 class TextureRegion : public gmx::TextureRegion<SDL_Texture*> {
     public:
-        TextureRegion() : gmx::TextureRegion<SDL_Texture*>() {}
         TextureRegion(Texture* texture)
             : gmx::TextureRegion<SDL_Texture*>(texture) {}
         virtual ~TextureRegion() {}

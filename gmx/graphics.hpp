@@ -26,7 +26,6 @@ class Texture {
 template <class T>
 class TextureRegion {
     public:
-        TextureRegion() {}
         TextureRegion(Texture<T>* texture) : texture(texture) {
             setRegion(0, 0, texture->getWidth(), texture->getHeight());
         }
@@ -71,10 +70,6 @@ class TextureRegion {
         }
 
         Texture<T>* getTexture() { return texture; }
-        void setTexture(Texture<T>* texture) {
-            this->texture = texture;
-            setRegion(0, 0, texture->getWidth(), texture->getHeight());
-        }
 
         float getU() { return u; }
         void setU(float u) {

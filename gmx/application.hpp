@@ -43,20 +43,18 @@ class DefaultState: public State {
         virtual void dispose() {}
 };
 
-typedef std::shared_ptr<State> StatePtr;
-
 class StateApplication : public Application {
     public:
         StateApplication();
         virtual ~StateApplication();
 
-        const StatePtr& getState() const;
-        void setState(const StatePtr& state);
+        const std::shared_ptr<State>& getState() const;
+        void setState(const std::shared_ptr<State>& state);
 
         virtual void update();
 
     private:
-        StatePtr state;
+        std::shared_ptr<State> state;
 };
 
 } /* namespace gmx */

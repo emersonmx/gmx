@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include <memory>
 #include <string>
 #include <stdexcept>
 
@@ -98,7 +99,7 @@ class Renderer {
         SDL_Renderer* renderer;
 };
 
-Texture* loadTexture(SDL_Renderer* renderer, std::string filename);
+std::unique_ptr<Texture> loadTexture(SDL_Renderer* renderer, std::string filename);
 
 } /* namespace sdl */
 #endif /* SDL_UTILS_HPP */

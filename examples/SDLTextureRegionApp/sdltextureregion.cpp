@@ -13,7 +13,7 @@ using namespace std;
 
 typedef shared_ptr<sdl::Window> WindowPtr;
 typedef shared_ptr<sdl::Renderer> RendererPtr;
-typedef shared_ptr<sdl::Texture> TexturePtr;
+typedef unique_ptr<sdl::Texture> TexturePtr;
 typedef shared_ptr<sdl::TextureRegion> TextureRegionPtr;
 
 class SDLTextureRegionApp : public gmx::Application {
@@ -86,7 +86,7 @@ class SDLTextureRegionApp : public gmx::Application {
         }
 
         bool loadAssets() {
-            texture.reset(sdl::loadTexture(*renderer, "assets/numbers.png"));
+            texture = sdl::loadTexture(*renderer, "assets/numbers.png");
             if (!texture) {
                 return false;
             }

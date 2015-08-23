@@ -164,7 +164,7 @@ void Renderer::present() {
     SDL_RenderPresent(renderer);
 }
 
-Texture* loadTexture(SDL_Renderer* renderer, string filename) {
+unique_ptr<Texture> loadTexture(SDL_Renderer* renderer, string filename) {
     SDL_Texture* sdltexture = IMG_LoadTexture(renderer, filename.c_str());
     if (sdltexture == NULL) {
         return NULL;
@@ -173,7 +173,7 @@ Texture* loadTexture(SDL_Renderer* renderer, string filename) {
     int w, h;
     SDL_QueryTexture(sdltexture, NULL, NULL, &w, &h);
 
-    return new Texture(sdltexture, w, h);
+    return unique_ptr<Texture>(new Texture(sdltexture, w, h));
 }
 
 } /* namespace sdl */

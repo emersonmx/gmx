@@ -121,6 +121,10 @@ SDL_Renderer* Renderer::getSDLRenderer() {
     return renderer;
 }
 
+void Renderer::create(std::shared_ptr<Window>& window, Uint32 flags) {
+    create(window.get(), flags);
+}
+
 void Renderer::create(Window* window, Uint32 flags) {
     create(window->getSDLWindow(), flags);
 }
@@ -137,9 +141,17 @@ void Renderer::setDrawColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha) {
     SDL_SetRenderDrawColor(renderer, red, green, blue, alpha);
 }
 
+void Renderer::draw(std::shared_ptr<Texture>& texture, int x, int y) {
+    draw(texture.get(), x, y);
+}
+
 void Renderer::draw(Texture* texture, int x, int y) {
     SDL_Rect offset = { x, y, texture->getWidth(), texture->getHeight() };
     draw(*texture, NULL, &offset);
+}
+
+void Renderer::draw(std::shared_ptr<TextureRegion>& region, int x, int y) {
+    draw(region.get(), x, y);
 }
 
 void Renderer::draw(TextureRegion* region, int x, int y) {

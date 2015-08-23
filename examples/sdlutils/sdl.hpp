@@ -84,10 +84,13 @@ class Renderer {
 
         SDL_Renderer* getSDLRenderer();
 
+        void create(std::shared_ptr<Window>& window, Uint32 flags=DEFAULT_FLAGS);
         void create(Window* window, Uint32 flags=DEFAULT_FLAGS);
         void create(SDL_Window* window, Uint32 flags=DEFAULT_FLAGS);
         void setDrawColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);
+        void draw(std::shared_ptr<Texture>& texture, int x, int y);
         void draw(Texture* texture, int x, int y);
+        void draw(std::shared_ptr<TextureRegion>& region, int x, int y);
         void draw(TextureRegion* region, int x, int y);
         void draw(SDL_Texture* texture, SDL_Rect* source, SDL_Rect* offset);
         void clear();

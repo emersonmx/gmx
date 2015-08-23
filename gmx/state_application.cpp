@@ -9,7 +9,7 @@ StateApplication::StateApplication()
 
 StateApplication::~StateApplication() {}
 
-const shared_ptr<State>& StateApplication::getState() const {
+shared_ptr<State>& StateApplication::getState() {
     return state;
 }
 

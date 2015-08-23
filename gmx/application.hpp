@@ -48,7 +48,7 @@ class StateApplication : public Application {
         StateApplication();
         virtual ~StateApplication();
 
-        const std::shared_ptr<State>& getState() const;
+        std::shared_ptr<State>& getState();
         void setState(const std::shared_ptr<State>& state);
 
         virtual void update();

@@ -31,7 +31,7 @@ class Texture : public gmx::Texture<SDL_Texture*> {
 class TextureRegion : public gmx::TextureRegion<SDL_Texture*> {
     public:
         TextureRegion(Texture& texture)
-            : gmx::TextureRegion<SDL_Texture*>(&texture) {}
+            : gmx::TextureRegion<SDL_Texture*>(texture) {}
         virtual ~TextureRegion() {}
 };
 
@@ -114,8 +114,8 @@ class Renderer {
         void setDrawColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha) {
             SDL_SetRenderDrawColor(renderer, red, green, blue, alpha);
         }
-        void draw(Texture* texture, int x, int y);
-        void draw(TextureRegion* region, int x, int y);
+        void draw(Texture& texture, int x, int y);
+        void draw(TextureRegion& region, int x, int y);
         void draw(SDL_Texture* texture, SDL_Rect* source, SDL_Rect* offset) {
             SDL_RenderCopy(renderer, texture, source, offset);
         }

@@ -135,7 +135,7 @@ class SDLTextureRegionApp : public gmx::Application {
 
         void draw() {
             renderer->clear();
-            renderer->draw(region.get(), WINDOW_WIDTH / 2 - 8, WINDOW_HEIGHT / 2 - 8);
+            renderer->draw(*region, WINDOW_WIDTH / 2 - 8, WINDOW_HEIGHT / 2 - 8);
             renderer->present();
         }
 

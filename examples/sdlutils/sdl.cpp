@@ -35,19 +35,19 @@ Renderer::Renderer(SDL_Window* window, Uint32 flags) {
     setDrawColor(0, 0, 0, 0);
 }
 
-void Renderer::draw(Texture* texture, int x, int y) {
-    SDL_Rect offset = { x, y, texture->getWidth(), texture->getHeight() };
-    draw(*texture, NULL, &offset);
+void Renderer::draw(Texture& texture, int x, int y) {
+    SDL_Rect offset = { x, y, texture.getWidth(), texture.getHeight() };
+    draw(texture, NULL, &offset);
 }
 
-void Renderer::draw(TextureRegion* region, int x, int y) {
-    SDL_Rect offset = { x, y, region->getRegionWidth(), region->getRegionHeight() };
+void Renderer::draw(TextureRegion& region, int x, int y) {
+    SDL_Rect offset = { x, y, region.getRegionWidth(), region.getRegionHeight() };
     SDL_Rect offsetSource = {
-        region->getRegionX(), region->getRegionY(),
-        region->getRegionWidth(), region->getRegionHeight()
+        region.getRegionX(), region.getRegionY(),
+        region.getRegionWidth(), region.getRegionHeight()
     };
 
-    draw(*(region->getTexture()), &offsetSource, &offset);
+    draw(region.getTexture(), &offsetSource, &offset);
 }
 
 unique_ptr<Texture> loadTexture(SDL_Renderer* renderer, string filename) {

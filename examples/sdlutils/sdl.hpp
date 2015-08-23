@@ -82,8 +82,6 @@ class Renderer {
         Renderer();
         virtual ~Renderer();
 
-        SDL_Renderer* getSDLRenderer();
-
         void create(std::shared_ptr<Window>& window, Uint32 flags=DEFAULT_FLAGS);
         void create(Window* window, Uint32 flags=DEFAULT_FLAGS);
         void create(SDL_Window* window, Uint32 flags=DEFAULT_FLAGS);

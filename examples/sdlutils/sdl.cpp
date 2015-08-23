@@ -117,10 +117,6 @@ Renderer::~Renderer() {
     SDL_DestroyRenderer(renderer);
 }
 
-SDL_Renderer* Renderer::getSDLRenderer() {
-    return renderer;
-}
-
 void Renderer::create(std::shared_ptr<Window>& window, Uint32 flags) {
     create(window.get(), flags);
 }

@@ -70,8 +70,7 @@ class SDLTextureRegionApp : public gmx::Application {
 
         bool createRenderer() {
             try {
-                renderer = make_shared<sdl::Renderer>();
-                renderer->create(window);
+                renderer = make_shared<sdl::Renderer>(window);
                 return true;
             } catch (...) {}
             return false;

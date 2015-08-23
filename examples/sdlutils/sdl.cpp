@@ -110,27 +110,22 @@ int Window::refresh() {
     return SDL_UpdateWindowSurface(window);
 }
 
-Renderer::Renderer()
-    : renderer(NULL) {}
+Renderer::Renderer(std::shared_ptr<Window>& window, Uint32 flags)
+    : Renderer(*window, flags) {}
 
-Renderer::~Renderer() {
-    SDL_DestroyRenderer(renderer);
-}
+Renderer::Renderer(Window& window, Uint32 flags)
+    : Renderer(window.getSDLWindow(), flags) {}
 
-void Renderer::create(std::shared_ptr<Window>& window, Uint32 flags) {
-    create(window.get(), flags);
-}
-
-void Renderer::create(Window* window, Uint32 flags) {
-    create(window->getSDLWindow(), flags);
-}
-
-void Renderer::create(SDL_Window* window, Uint32 flags) {
+Renderer::Renderer(SDL_Window* window, Uint32 flags) {
     renderer = SDL_CreateRenderer(window, -1, flags);
     if (renderer == NULL) {
         throw Error();
     }
     setDrawColor(0, 0, 0, 0);
+}
+
+Renderer::~Renderer() {
+    SDL_DestroyRenderer(renderer);
 }
 
 void Renderer::setDrawColor(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha) {

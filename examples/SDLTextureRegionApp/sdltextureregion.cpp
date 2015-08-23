@@ -129,7 +129,7 @@ class SDLTextureRegionApp : public gmx::Application {
                 exit(0);
             }
 
-            region = make_shared<sdl::TextureRegion>(texture.get());
+            region = make_shared<sdl::TextureRegion>(*texture);
             region->setRegion(16*count, 0, 16, 16);
         }
 

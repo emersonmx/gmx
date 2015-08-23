@@ -111,10 +111,10 @@ int Window::refresh() {
 }
 
 Renderer::Renderer(std::shared_ptr<Window>& window, Uint32 flags)
-    : Renderer(window.get(), flags) {}
+    : Renderer(*window, flags) {}
 
-Renderer::Renderer(Window* window, Uint32 flags)
-    : Renderer(window->getSDLWindow(), flags) {}
+Renderer::Renderer(Window& window, Uint32 flags)
+    : Renderer(window.getSDLWindow(), flags) {}
 
 Renderer::Renderer(SDL_Window* window, Uint32 flags) {
     renderer = SDL_CreateRenderer(window, -1, flags);

@@ -80,7 +80,7 @@ class Renderer {
     public:
         static const Uint32 DEFAULT_FLAGS = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
         Renderer(std::shared_ptr<Window>& window, Uint32 flags=DEFAULT_FLAGS);
-        Renderer(Window* window, Uint32 flags=DEFAULT_FLAGS);
+        Renderer(Window& window, Uint32 flags=DEFAULT_FLAGS);
         Renderer(SDL_Window* window, Uint32 flags=DEFAULT_FLAGS);
         virtual ~Renderer();
 

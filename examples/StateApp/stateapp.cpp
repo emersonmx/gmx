@@ -21,12 +21,12 @@ class TestState : public gmx::DefaultState {
         TestState(StateApp& app) : app(app), count(1) {}
         virtual ~TestState() {}
 
-        virtual void show() {
-            printf("State show\n");
+        virtual void enter() {
+            printf("State enter\n");
         }
 
-        virtual void hide() {
-            printf("State hide\n");
+        virtual void exit() {
+            printf("State exit\n");
         }
 
         virtual void update() {

@@ -27,8 +27,8 @@ class State {
     public:
         virtual ~State() {}
 
-        virtual void show() = 0;
-        virtual void hide() = 0;
+        virtual void enter() = 0;
+        virtual void exit() = 0;
         virtual void update() = 0;
         virtual void dispose() = 0;
 };
@@ -37,8 +37,8 @@ class DefaultState: public State {
     public:
         virtual ~DefaultState() {}
 
-        virtual void show() {}
-        virtual void hide() {}
+        virtual void enter() {}
+        virtual void exit() {}
         virtual void update() {}
         virtual void dispose() {}
 };

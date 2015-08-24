@@ -14,9 +14,9 @@ shared_ptr<State>& StateApplication::getState() {
 }
 
 void StateApplication::setState(const shared_ptr<State>& state) {
-    this->state->hide();
+    this->state->exit();
     this->state = state;
-    this->state->show();
+    this->state->enter();
 }
 
 void StateApplication::update() {

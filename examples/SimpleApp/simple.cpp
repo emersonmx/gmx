@@ -19,8 +19,8 @@ class SimpleApp : public gmx::Application {
             printf("Disposed\n");
         }
 
-        virtual void update() {
-            printf("Update %d\n", count);
+        virtual void render() {
+            printf("render %d\n", count);
             if (count++ >= 10) {
                 exit();
             }

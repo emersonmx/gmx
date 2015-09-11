@@ -16,7 +16,7 @@ class Application {
     protected:
         virtual void create() = 0;
         virtual void dispose() = 0;
-        virtual void update() = 0;
+        virtual void render() = 0;
 
     private:
         bool running;
@@ -29,7 +29,7 @@ class State {
 
         virtual void enter() = 0;
         virtual void exit() = 0;
-        virtual void update() = 0;
+        virtual void render() = 0;
         virtual void dispose() = 0;
 };
 
@@ -39,7 +39,7 @@ class DefaultState: public State {
 
         virtual void enter() {}
         virtual void exit() {}
-        virtual void update() {}
+        virtual void render() {}
         virtual void dispose() {}
 };
 
@@ -51,7 +51,7 @@ class StateApplication : public Application {
         std::shared_ptr<State>& getState();
         void setState(const std::shared_ptr<State>& state);
 
-        virtual void update();
+        virtual void render();
 
     private:
         std::shared_ptr<State> state;

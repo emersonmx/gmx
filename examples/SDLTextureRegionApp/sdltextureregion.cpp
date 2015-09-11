@@ -101,7 +101,7 @@ class SDLTextureRegionApp : public gmx::Application {
             SDL_Quit();
         }
 
-        virtual void update() {
+        virtual void render() {
             timer.update();
             handleInput();
             processLogic();

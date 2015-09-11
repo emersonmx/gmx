@@ -105,7 +105,7 @@ class TextureApp : public gmx::Application {
             glfwTerminate();
         }
 
-        virtual void update() {
+        virtual void render() {
             glfwPollEvents();
 
             if (glfwWindowShouldClose(window)) {

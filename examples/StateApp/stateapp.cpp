@@ -29,7 +29,7 @@ class TestState : public gmx::DefaultState {
             printf("State exit\n");
         }
 
-        virtual void update() {
+        virtual void render() {
             printf("State updated %d\n", count);
             if (count++ >= 10) {
                 app.exit();

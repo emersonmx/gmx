@@ -10,7 +10,7 @@ Application::~Application() {}
 int Application::run() {
     create();
     while (running) {
-        update();
+        render();
     }
     dispose();
 

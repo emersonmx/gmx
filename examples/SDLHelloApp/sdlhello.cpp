@@ -73,7 +73,7 @@ class SDLHelloApp : public gmx::Application {
             SDL_Quit();
         }
 
-        virtual void update() {
+        virtual void render() {
             handleInput();
             processLogic();
             draw();

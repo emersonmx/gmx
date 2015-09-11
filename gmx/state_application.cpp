@@ -19,8 +19,8 @@ void StateApplication::setState(const shared_ptr<State>& state) {
     this->state->enter();
 }
 
-void StateApplication::update() {
-    state->update();
+void StateApplication::render() {
+    state->render();
 }
 
 }
